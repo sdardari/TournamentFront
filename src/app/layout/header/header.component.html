@@ -1,8 +1,6 @@
 <p-toolbar>
   <div class="p-toolbar-group-start">
-      <p-button icon="pi pi-plus" class="mr-2"/>
-      <p-button icon="pi pi-print" class="mr-2"/>
-      <p-button icon="pi pi-upload" />
+      <p>Project</p>
   </div>
   <div class="p-toolbar-group-center">
       <span class="p-input-icon-left">
@@ -11,6 +9,15 @@
       </span>
   </div>
   <div class="p-toolbar-group-end">
-      <p-splitButton label="Save" icon="pi pi-check" [model]="items" />
+    <div class="flex align-items-center gap-2">
+        <p-button>
+            <p-avatar 
+            image="https://primefaces.org/cdn/primeng/images/demo/avatar/walter.jpg" 
+            shape="circle" />
+        <span class="font-bold text-bluegray-50">
+            Jhon Doe
+        </span>
+        </p-button>
+    </div>
   </div>
 </p-toolbar>
