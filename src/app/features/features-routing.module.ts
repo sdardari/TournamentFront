@@ -1,9 +1,17 @@
-import { Routes } from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
+import {LoginComponent} from './authentification/login/login.component';
+import {RegisterComponent} from './authentification/register/register.component';
+import {HomeComponent} from './authentification/home/home.component';
+import {NgModule} from '@angular/core';
 
 const routes: Routes=[
     { path:'', redirectTo:'/home', pathMatch:'full'},
-
-    { path: 'profil', loadChildren:()=> import('./profil/profil.module').then(m=>m.ProfilModule) },    
-    { path: 'login-register', loadChildren:()=> import('./login-register/login-register.module').then(m=>m.LoginRegisterModule) },    
-
+  // {
+  //   path:'**', component: "noPageFound"
+  // }
 ]
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class featuresRoutingModule { }
