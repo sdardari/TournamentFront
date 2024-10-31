@@ -1,0 +1,52 @@
+
+
+<div class="flex justify-content-center align-items-center min-h-screen">
+  <p-card header="Login" [style]="{width:'400px'}">
+  <form #loginForm="ngForm" (ngSubmit)="onLogin()">
+    <div class="field">
+      <label for="username">username</label>
+<!--      //for = id du label -->
+      <input type="text"
+             pInputText [(ngModel)]="login.username"
+             class="w-full"
+             id="username"
+             name="username"
+             required
+             #username= "ngModel"
+      >
+      <!--      id dans input est lier au label                 -->
+      <!--      // name dans le input est égale au id du input -->
+      @if(username.invalid &&(username.dirty || username.touched)){
+        <small class="block p-error">
+          @if(username.hasError('required')){
+            <span> Email is required</span>
+          }
+        </small>
+      }
+      </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <p-password [(ngModel)]="login.password"
+                  [feedback]="false"
+                  [toggleMask]="true"
+                  inputId="password"
+                  name="password"
+                  #password="ngModel"
+                  inputStyleClass="w-full"
+                  styleClass="w-full"
+                  required>
+      </p-password>
+      @if(password.invalid &&(password.dirty || password.touched)){
+        <small class="block p-error"> Password is required</small>
+      }
+    </div>
+    <p-button
+      label="Sign In"
+      styleClass="w-full"
+      [disabled]="loginForm.invalid"
+      type="submit"
+      ></p-button>
+  </form>
+  </p-card>
+</div>

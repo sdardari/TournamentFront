@@ -1,0 +1,137 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <!-- @for pour itérer à travers les champs -->
+  @for (field of fields; track $index) {
+    <div class="form-group">
+      <!-- Label du champ -->
+      <label [for]="field.controlName">
+        <p><strong>{{ field.label }} :</strong></p>
+      </label>
+
+      <!-- @if pour vérifier si c'est un FormArray -->
+      @if (!field.isArray) {
+        <!-- @switch pour gérer différents types de champs -->
+        @switch (field.type) {
+          <!-- Champ de saisie classique -->
+          @case (formFieldTypes.TEXT) {
+            <input
+              class="custom-input"
+              [type]="field.type"
+              [formControlName]="field.controlName"
+              [placeholder]="field.placeholder"
+              [min]="field.min"
+              [attr.max]="field.max"
+              [attr.step]="field.step"
+            />
+          }
+
+          <!-- Champ de mot de passe -->
+          @case (formFieldTypes.PASSWORD) {
+            <input
+              class="custom-input"
+              type="password"
+              [formControlName]="field.controlName"
+              [attr.placeholder]="field.placeholder"
+            />
+          }
+
+          <!-- Champ d'email -->
+          @case (formFieldTypes.EMAIL) {
+            <input
+              class="custom-input"
+              type="email"
+              [formControlName]="field.controlName"
+              [attr.placeholder]="field.placeholder"
+            />
+          }
+
+          <!-- Champ numérique -->
+          @case (formFieldTypes.NUMBER) {
+            <input
+              class="custom-input"
+              type="number"
+              [formControlName]="field.controlName"
+              [attr.min]="field.min"
+              [attr.max]="field.max"
+              [attr.step]="field.step"
+              [attr.placeholder]="field.placeholder"
+            />
+          }
+
+          <!-- Champ de sélection -->
+          @case (formFieldTypes.SELECT) {
+            <select
+              class="custom-input"
+              [formControlName]="field.controlName"
+            >
+              @for (option of field.options; track $index) {
+                <option [value]="option">
+                  {{ option }}
+                </option>
+              }
+            </select>
+          }
+
+          <!-- Champ de texte -->
+          @case (formFieldTypes.TEXTAREA) {
+            <textarea
+              class="custom-input"
+              [formControlName]="field.controlName"
+              [attr.placeholder]="field.placeholder">
+                      </textarea>
+          }
+
+          <!-- Case de la case à cocher -->
+          @case (formFieldTypes.CHECKBOX) {
+            <input
+              type="checkbox"
+              [formControlName]="field.controlName"
+            />
+          }
+
+          <!-- Boutons radio -->
+          @case (formFieldTypes.RADIO) {
+            <div>
+              @for (option of field.options; track $index) {
+                <label>
+                  <input
+                    type="radio"
+                    [formControlName]="field.controlName"
+                    [value]="option"
+                  /> {{ option }}
+                </label>
+              }
+            </div>
+          }
+        }
+      } @else {
+        <!-- Gestion des FormArray -->
+        <div formArrayName="{{ field.controlName }}">
+          @for (control of getFormArray(field.controlName).controls; track $index) {
+            <div class="array-item">
+              <input
+                class="custom-input"
+                [formControlName]="$index"
+                [attr.placeholder]="field.placeholder"
+              />
+              <button class="cta-button" type="button" (click)="removeItem(field.controlName, $index)">Supprimer</button>
+            </div>
+          }
+          <button class="cta-button" type="button" (click)="addItem(field.controlName)">Ajouter un élément</button>
+        </div>
+      }
+
+      <!-- Message d'erreur -->
+      <validators-errors-handler
+        [control]="form.get(field.controlName)"
+        [errorMessages]="field.errorMessage"
+      />
+    </div>
+  }
+
+  <!-- Bouton de soumission -->
+  <button
+    class="cta-button"
+    type="submit"
+    [disabled]="form.invalid">Submit
+  </button>
+</form>
