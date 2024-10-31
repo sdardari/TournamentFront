@@ -1,0 +1,51 @@
+/* Style principal de la section de tableau de bord */
+.dashboard-section {
+  padding: 0.5rem;
+}
+
+.statistics-card {
+  text-align: center;
+}
+
+/* Titre en mode jeu vidéo */
+.game-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+}
+
+/* Statistiques principales */
+.stats-overview {
+  margin-top: 1rem;
+  color: #222222;
+}
+
+.stat-item {
+  flex: 1 1 45%;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 0 5px;
+}
+
+.full-width-item {
+  grid-column: span 2;
+}
+
+.flex{
+  display: grid;
+  gap: 1rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #676767;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.division {
+}

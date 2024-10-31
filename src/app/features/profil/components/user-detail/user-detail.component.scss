@@ -1,0 +1,13 @@
+.profile-page{
+  margin: 0.5rem;
+}
+
+.profile-content{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+}
+
+.avatar-container{
+  text-align: center;
+}

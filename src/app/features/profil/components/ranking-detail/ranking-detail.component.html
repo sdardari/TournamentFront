@@ -1,0 +1,29 @@
+<div class="dashboard-section flex justify-content-center mt-4">
+  <p-card class="statistics-card w-full lg:w-10 xl:w-8">
+      <h3 class="text-center game-title">User Performance Dashboard</h3>
+
+    <!-- Section des statistiques en chiffres -->
+    <div class="stats-overview flex flex-wrap gap-4 justify-content-around text-center">
+        <div class="stat-item">
+          <p class="stat-label">Total Matches</p>
+          <p class="stat-value">{{ ranking.nbMatches }}</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-label">League Points</p>
+          <p class="stat-value">{{ ranking.leaguePoints }}</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-label">Wins</p>
+          <p class="stat-value">{{ ranking.wins }}</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-label">Losses</p>
+          <p class="stat-value">{{ ranking.losses }}</p>
+        </div>
+      <div class="stat-item full-width-item">
+        <p class="stat-label">Division</p>
+        <p class="stat-value division">{{ ranking.division }}</p>
+      </div>
+    </div>
+  </p-card>
+</div>
