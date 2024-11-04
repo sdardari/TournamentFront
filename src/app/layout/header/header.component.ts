@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Endpoint} from '../../shared/enum/endpoint';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
-  
+
+  endpoint = Endpoint
+
   items: any[] | undefined;
 
   ngOnInit() {
@@ -21,7 +24,7 @@ export class HeaderComponent implements OnInit {
         label: 'Login/Register',
         icon: 'pi pi-sign-in',
         routerLink: '/login-register',
-        
+
         routerLinkActiveOptions: { exact: true }
       }
     ];

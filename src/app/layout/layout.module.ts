@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import {Button} from "primeng/button";
+import {ToolbarModule} from 'primeng/toolbar';
+import {SplitButtonModule} from 'primeng/splitbutton';
+import {InputTextModule} from 'primeng/inputtext';
 
 
 
@@ -13,7 +17,11 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    Button,
+    ToolbarModule,
+    SplitButtonModule,
+    InputTextModule
   ],
 
   exports:[
