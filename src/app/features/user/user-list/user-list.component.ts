@@ -1,6 +1,6 @@
 // components/user-list/user-list.component.ts
 import { Component, OnInit } from '@angular/core';
-import {UserDTO, UserService} from '../../../pages/tools/services/user.service';
+import {UserDTO, UserService} from '../../../../../../../Downloads/TournamentFront-main 2/src/app/pages/tools/services/user.service';
 
 
 @Component({
