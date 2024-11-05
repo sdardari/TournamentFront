@@ -1,0 +1,62 @@
+<p-table [columns]="cols" [value]="usersRankings" [scrollable]="true" scrollHeight="400px" [rows]="100">
+  <!-- Table Header -->
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        <ng-container *ngIf="col.isImageHeader; else textHeader">
+          <img [src]="topHeaderImage" alt="Top Icon" class="header-icon" />
+        </ng-container>
+        <ng-template #textHeader>{{ col.header }}</ng-template>
+      </th>
+    </tr>
+  </ng-template>
+
+  <!-- Table Body -->
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr style="height:60px;">
+      <td *ngFor="let col of columns">
+        <ng-container *ngIf="col.field === 'id'">
+          <div class="user-cell">
+            {{ rowData.rank }}
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="col.field === 'username'">
+          <div class="profile-container">
+            <img [src]="rowData.profileImage" alt="Profile" class="profile-image" />
+            <div class="username">{{ rowData.username }}</div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="col.field === 'kda'">
+          <div class="user-cell">
+            {{ rowData.winRate }} | {{ rowData.ratioKDA }}
+          </div>
+        </ng-container>
+        <ng-container *ngIf="col.field === 'winTournaments'">
+          <div class="user-cell">
+            {{ rowData.winTournaments }}</div>
+        </ng-container>
+        <ng-container *ngIf="col.field === 'nbMatches'">
+          <div class="user-cell">
+            {{ rowData.nbMatches }}</div>
+        </ng-container>
+
+        <ng-container *ngIf="col.field === 'ranking'">
+          <div class="user-cell">
+            <img [src]="rowData.rankingImage" alt="Ranking" class="ranking-image" />
+            <ng-container *ngIf="rowData.rank == 1">
+              <img class="ranking-image" style="margin-left: 15px" src="{{topWinnerImage}}" />
+            </ng-container>
+            <ng-container *ngIf="rowData.rank == 2">
+              <img class="ranking-image" style="margin-left: 15px" src="{{WinnerDeuxImage}}" />
+            </ng-container>
+            <ng-container *ngIf="rowData.rank == 3">
+              <img class="ranking-image" style="margin-left: 15px" src="{{Winnertrois}}" />
+            </ng-container>
+          </div>
+        </ng-container>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

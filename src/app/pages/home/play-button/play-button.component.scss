@@ -1,0 +1,12 @@
+.big-button {
+  font-size: 2rem !important;  // Taille de la typographie
+  padding: 1rem 2rem;          // Ajustez le padding pour agrandir le bouton
+  border-radius: 8px;
+}
+
+.custom-font {
+  .p-button-label {
+    font-size: 20rem !important; // Applique une taille de texte importante
+    font-weight: bold;          // Rendre le texte plus gras si besoin
+  }
+}
