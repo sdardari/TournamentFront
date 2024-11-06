@@ -1,0 +1,41 @@
+<div class="dashboard-section flex justify-content-center">
+  <p-card class="edit-form-card bg-cornsilk w-full lg:w-10 xl:w-8">
+    <h3 class="text-center game-title">Modification des données</h3>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="stats-overview flex flex-wrap gap-4 justify-content-around text-center">
+
+      @for (field of formFields; track $index){
+        <div class="form-item">
+          <label [for]="field.controlName" class="stat-label">{{field.label}}</label>
+          <input
+            [type]="field.type"
+            [formControlName]="field.controlName"
+            [ngClass]="{error: isInvalid(field.controlName)}"
+            class="stat-value"/>
+
+          @if (isInvalid(field.controlName)) {
+            <div class="error-wrapper">
+              <span class="error">{{ field.validatorMessage }}</span>
+            </div>
+          }
+        </div>
+      }
+
+      <div class="button-group full-width-item">
+        <p-button
+          label="Update"
+          type="submit"
+          icon="pi pi-save"
+          class="p-button-success">
+        </p-button>
+        <p-button
+          label="Cancel"
+          type="button"
+          icon="pi pi-times"
+          class="p-button-secondary"
+          (click)="onCancel()">
+        </p-button>
+      </div>
+    </form>
+  </p-card>
+</div>

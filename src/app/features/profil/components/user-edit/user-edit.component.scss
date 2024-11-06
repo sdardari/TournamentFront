@@ -1,0 +1,86 @@
+/* Style principal de la section de formulaire */
+.dashboard-section {
+  padding: 0.5rem;
+}
+
+.bg-cornsilk {
+  background-color: cornsilk;
+}
+
+.edit-form-card {
+  text-align: center;
+}
+
+.game-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+}
+
+.stats-overview {
+  margin-top: 1rem;
+  color: #222222;
+}
+
+.form-item {
+  flex: 1 1 45%;
+  padding: 0.5rem;
+}
+
+.full-width-item {
+  grid-column: span 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #676767;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-family: 'Orbitron', sans-serif;
+  width: 100%;
+  padding: 0.3rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Style pour le message d'erreur */
+.error {
+  color: #d9534f; /* Rouge doux pour attirer l’attention */
+  font-size: 0.875em;
+  margin-top: 0.25em;
+  display: flex;
+  align-items: center;
+}
+
+.error-icon {
+  font-size: 1em;
+  margin-right: 0.25em;
+}
+
+/* Style pour les champs de formulaire invalides */
+input.ng-invalid.ng-touched {
+  border: 1px solid #d9534f; /* Bordure rouge pour champs invalides */
+  background-color: #f8d7da; /* Fond rose très clair */
+}
+
+.error-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.error-text {
+  color: #d9534f;
+  font-size: 0.9em;
+}
+

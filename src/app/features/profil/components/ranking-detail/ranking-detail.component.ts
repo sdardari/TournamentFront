@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RankingService} from '../tools/ranking.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'ranking-detail',
@@ -14,42 +15,18 @@ export class RankingDetailComponent {
   chartData: { datasets: { backgroundColor: string[]; data: any[]; }[]; labels: string[]; } | undefined;
   chartOptions: { responsive: boolean; plugins: { legend: { position: string; }; }; } | undefined
 
-  constructor(private rankingService: RankingService) { }
+  constructor(private rankingService: RankingService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.fetchRanking();
   }
 
   fetchRanking() {
-    this.rankingService.getRanking(2).subscribe({
+    this.route.data.subscribe({
       next: (data) => {
-        this.ranking = data;
+        this.ranking = data['rankingData'];
       },
-      complete: () => console.log('Requête rankong terminée')
+      complete: () => console.log('Requête ranking terminée')
     });
-
-    // Calcul des ratios pour les barres de progression
-    this.winRatio = (this.ranking.wins / this.ranking.nbMatches) * 100;
-    this.loseRatio = (this.ranking.losses / this.ranking.nbMatches) * 100;
-
-    // Données pour le graphique circulaire
-    this.chartData = {
-      labels: ['Wins', 'Losses'],
-      datasets: [
-        {
-          data: [this.ranking.wins, this.ranking.losses],
-          backgroundColor: ['#4caf50', '#f44336']
-        }
-      ]
-    };
-
-    this.chartOptions = {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'bottom'
-        }
-      }
-    };
   }
 }

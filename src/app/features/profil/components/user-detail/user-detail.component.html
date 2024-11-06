@@ -1,5 +1,5 @@
-<div class="profile-page">
-  <p-card class="profile-card">
+<div class="profile-page flex justify-content-center">
+  <p-card class="profile-card w-full lg:w-10 xl:w-8">
     <div class="profile-content">
       <div class="avatar-container">
         <p-image
@@ -16,9 +16,10 @@
           <p><strong>Email:</strong> {{ user.email }}</p>
         </div>
         <div class="actions">
-          <p-button label="Edit Profile" icon="pi pi-pencil" class="p-button-outlined"></p-button>
+          <p-button label="Edit Profile" icon="pi pi-pencil" class="p-button-outlined" (click)="editUser(user)"></p-button>
         </div>
       </div>
     </div>
   </p-card>
 </div>
+<user-edit *ngIf="isEditing" (close)="formClose()" (formSubmit)="onSubmit($event)" (cancel)="formClose()"/>

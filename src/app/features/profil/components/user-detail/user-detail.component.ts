@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfilService } from '../tools/profil.service';
-
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'user-detail',
@@ -8,24 +8,38 @@ import { ProfilService } from '../tools/profil.service';
   styleUrls: ['./user-detail.component.scss']
 })
 export class UserDetailComponent implements OnInit {
-  user: any = null;
+  user: any;
+  isEditing = false;
 
-  constructor(private profilService: ProfilService) { }
+  constructor(private profilService: ProfilService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.fetchData();
   }
 
   fetchData() {
-    this.profilService.getUser(2).subscribe({
+    this.route.data.subscribe({
       next: (data) => {
-        this.user = data;
+        this.user = data['userData'];
       },
-      complete: () => console.log('Requête terminée')
+      //complete: () => console.log('Requête terminée')
     });
   }
-  //
-  // editUser(): void {
-  //   this.user =
-  // }
+
+  onSubmit(formData: {[key: string]: any}): void {
+    this.profilService.updateUser(2, formData).subscribe(() => {
+      //console.log('L\'utilisateur & été mis à jour')
+      this.fetchData()
+      this.isEditing = !this.isEditing
+    })
+  }
+
+  editUser(user: any): void {
+    this.user = {...user}
+    this.isEditing = !this.isEditing
+  }
+
+  formClose(): void{
+    this.isEditing = false
+  }
 }

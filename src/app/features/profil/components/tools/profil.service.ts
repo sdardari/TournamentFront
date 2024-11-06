@@ -14,7 +14,7 @@ export class ProfilService {
     return this.http.get<any[]>(`${this.apiUrl}/${id}`);
   }
 
-  putUser(id: number, data: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, data);
+  updateUser(id:number, user:any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, user);
   }
 }

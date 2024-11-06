@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProfilService} from '../../features/profil/components/tools/profil.service';
 
 
 @Component({
