@@ -13,6 +13,7 @@ import {PasswordModule} from 'primeng/password';
 import {Button} from 'primeng/button';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
+import {ClanRoutingModule} from './clan/clan-routing.module';
 
 
 
@@ -20,12 +21,14 @@ import {SharedModule} from '../shared/shared.module';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+
   ],
   imports: [
     CommonModule,
     featuresRoutingModule,
     AuthentificationRoutingModule,
+    ClanRoutingModule,
     CardModule,
     FloatLabelModule,
     InputTextModule,

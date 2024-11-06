@@ -1,10 +1,10 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <!-- @for pour itérer à travers les champs -->
   @for (field of fields; track $index) {
-    <div class="form-group">
+    <div class="field">
       <!-- Label du champ -->
       <label [for]="field.controlName">
-        <p><strong>{{ field.label }} :</strong></p>
+        {{field.controlName}}
       </label>
 
       <!-- @if pour vérifier si c'est un FormArray -->
@@ -14,23 +14,20 @@
           <!-- Champ de saisie classique -->
           @case (formFieldTypes.TEXT) {
             <input
-              class="custom-input"
-              [type]="field.type"
+              pInputText [(ngModel)]="field.controlName"
+              class="w-full"
               [formControlName]="field.controlName"
               [placeholder]="field.placeholder"
-              [min]="field.min"
-              [attr.max]="field.max"
-              [attr.step]="field.step"
             />
           }
 
           <!-- Champ de mot de passe -->
           @case (formFieldTypes.PASSWORD) {
-            <input
-              class="custom-input"
+            <p-password
+              class="w-full"
               type="password"
               [formControlName]="field.controlName"
-              [attr.placeholder]="field.placeholder"
+              [placeholder]="field.placeholder"
             />
           }
 
@@ -129,9 +126,8 @@
   }
 
   <!-- Bouton de soumission -->
-  <button
-    class="cta-button"
-    type="submit"
-    [disabled]="form.invalid">Submit
-  </button>
+  <p-button
+    label="Submit"
+    styleClass="w-full"
+    [disabled]="form.invalid"></p-button>
 </form>

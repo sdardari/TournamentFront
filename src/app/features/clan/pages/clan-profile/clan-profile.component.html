@@ -1,0 +1,41 @@
+<div class="p-m-5 p-shadow-2">
+  <!-- En-tête du clan centré -->
+  <div class="p-text-center">
+    <h2>{{ clan.name }}</h2>
+  </div>
+
+  <!-- Section avec deux boîtes côte à côte -->
+  <div class="p-grid p-mt-4">
+    <!-- Boîte pour les informations générales -->
+    <div class="p-col-6 p-p-2">
+      <div >
+        <h3>Informations Générales</h3>
+        <p><strong>Description:</strong> {{ clan.description }}</p>
+        <p><strong>Trophées requis:</strong> {{ clan.minimumTrophies }}</p>
+        <p><strong>Status:</strong> {{ clan.isPrivate ? 'Privé' : 'Ouvert' }}</p>
+        <p><strong>Nombre de membres:</strong> {{ clan.members.length }}</p>
+      </div>
+    </div>
+
+    <!-- Boîte pour la liste des membres -->
+    <div class="p-col-6 p-p-2">
+      <div class="p-card p-p-3">
+        <h3>Membres du Clan</h3>
+        <table class="p-table">
+          <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Trophées</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let member of clan.members">
+            <td>{{ member.username }}</td>
+            <td>{{ member.trophies }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
