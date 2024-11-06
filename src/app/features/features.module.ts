@@ -13,9 +13,8 @@ import {Button} from 'primeng/button';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
 import {ClanRoutingModule} from './clan/clan-routing.module';
-
 import {ProfilModule} from './profil/profil.module';
-import {FeatureRoutingModule} from './features-routing.module';
+import { featuresRoutingModule } from './features-routing.module';
 
 
 @NgModule({
@@ -27,7 +26,7 @@ import {FeatureRoutingModule} from './features-routing.module';
   ],
   imports: [
     CommonModule,
-    FeatureRoutingModule,
+    featuresRoutingModule,
     AuthentificationRoutingModule,
     ClanRoutingModule,
     CardModule,

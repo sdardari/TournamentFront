@@ -4,8 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from '../layout/layout.module';
 import { RouterModule } from '@angular/router';
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient} from '@angular/common/http';
-import {SharedRoutingModule} from '../shared/shared-routing.module';
+import {HTTP_INTERCEPTORS, provideHttpClient} from '@angular/common/http';
 import {SharedModule} from 'primeng/api';
 import {AuthInterceptorService} from '../features/authentification/tools/interceptors/auth.interceptor.service';
 
