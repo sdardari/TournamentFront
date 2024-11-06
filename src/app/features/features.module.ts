@@ -12,6 +12,7 @@ import {PasswordModule} from 'primeng/password';
 import {Button} from 'primeng/button';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
+import {ClanRoutingModule} from './clan/clan-routing.module';
 
 import {ProfilModule} from './profil/profil.module';
 import {FeatureRoutingModule} from './features-routing.module';
@@ -21,12 +22,14 @@ import {FeatureRoutingModule} from './features-routing.module';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+
   ],
   imports: [
     CommonModule,
     FeatureRoutingModule,
     AuthentificationRoutingModule,
+    ClanRoutingModule,
     CardModule,
     FloatLabelModule,
     InputTextModule,

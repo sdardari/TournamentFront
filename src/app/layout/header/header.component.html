@@ -20,4 +20,6 @@
         </p-button>
     </div>
   </div>
+  <button *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
 </p-toolbar>
+

@@ -8,11 +8,16 @@ const routes: Routes=[
     { path:'', redirectTo:'/home', pathMatch:'full'},
     { path: 'profil',
       component:ProfilComponent,
-      resolve: {userData: ProfilResolver, rankingData: RankingResolver} }
-]
+      resolve: {userData: ProfilResolver, rankingData: RankingResolver} },
+  {path:'clan',loadChildren:()=>import('./clan/clan.module').then(module=>module.ClanModule)
 
+  }
+  // {
+  //   path:'**', component: "noPageFound"
+  // }
+]
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FeatureRoutingModule { }
+export class featuresRoutingModule { }

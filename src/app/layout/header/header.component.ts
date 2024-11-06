@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ProfilService} from '../../features/profil/components/tools/profil.service';
+import {AuthService} from '../../features/authentification/tools/services/auth.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -8,4 +9,16 @@ import {ProfilService} from '../../features/profil/components/tools/profil.servi
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+
+  constructor(private authService:AuthService, private router:Router) {
+  }
+
+  isLoggedIn(): boolean{
+    return this.authService.isLoggedIn();
+  }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['login']);
+  }
 }
