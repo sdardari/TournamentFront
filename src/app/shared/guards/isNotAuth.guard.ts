@@ -9,7 +9,7 @@ export const isNotAuthGuard: CanActivateFn = (route, state) => {
 
   if(auth.isLoggedIn()) return true
   else{
-    alert("please connect to continue ")
+    //alert("please connect to continue ")
     return router.navigate(['/login']);
   }
 

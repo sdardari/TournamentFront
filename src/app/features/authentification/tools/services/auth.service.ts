@@ -39,7 +39,7 @@ export class AuthService {
     if (token) {
 
       const decodedToken: any = jwtDecode(token);
-      return decodedToken.user_id || null;
+      return decodedToken.id || null;
     }
     return null;
   }

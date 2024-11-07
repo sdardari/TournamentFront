@@ -17,17 +17,17 @@ export class LoginComponent {
 
 
   onLogin() {
-    console.log(this.login);
+    //console.log(this.login);
     this.authService.login(this.login.username, this.login.password).subscribe({
       next:(data)=>{
-        console.log('login succescful',data);
+        console.log('login succescful');
         localStorage.setItem('token',data.token);
         this.router.navigate(['/home']);
-         console.log('le token: ', localStorage.getItem('token'));
+         //console.log('le token: ', localStorage.getItem('token'));
       },
       error:(error)=>{
         console.log('login failed',error);
-        alert('failed connection. Verify your id ')
+        //alert('failed connection. Verify your id ')
       }
     })
   }

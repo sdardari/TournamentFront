@@ -9,6 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { AvatarModule } from 'primeng/avatar';
+import {ImageModule} from 'primeng/image';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AvatarModule } from 'primeng/avatar';
     ButtonModule,
     InputTextModule,
     SplitButtonModule,
-    AvatarModule
+    AvatarModule,
+    ImageModule
   ],
 
   exports:[

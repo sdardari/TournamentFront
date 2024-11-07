@@ -1,7 +1,8 @@
 import { Resolve } from '@angular/router';
 import {Injectable} from '@angular/core';
 import {ProfilService} from './profil.service';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
+import {AuthService} from '../../../authentification/tools/services/auth.service';
 
 @Injectable({
   providedIn : 'root'
@@ -9,10 +10,15 @@ import {Observable} from 'rxjs';
 
 export class ProfilResolver implements Resolve<any>{
 
-  constructor(private profilService: ProfilService) { }
+  constructor(private profilService: ProfilService, private authService: AuthService) { }
 
   resolve(): Observable<any> {
-    return this.profilService.getUser(2);
-
+    const userId = this.authService.getUserIdFromToken()
+    if(userId){
+      return this.profilService.getUser(userId);
+    } else {
+      console.log('erreur')
+      return of(null);
+    }
   }
 }
