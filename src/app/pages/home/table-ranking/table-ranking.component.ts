@@ -25,7 +25,7 @@ export class TableRankingComponent implements OnInit {
   topWinnerImage: string = 'assets/images/top-winner.png';
   topHeaderImage = 'assets/images/top.png';
   WinnerDeuxImage: string = 'assets/images/star.png';
-  Winnertrois: string = 'assets/images/3rd-place.png';
+  WinnerTrois: string = 'assets/images/3rd-place.png';
 
   constructor(private readonly userService: UserService) {}
 
@@ -95,6 +95,7 @@ export class TableRankingComponent implements OnInit {
   ngOnInit() {
     this.initializeColumns();
     this.userRankingsInit();
+    console.log(this.usersRankings);
   }
 
 }

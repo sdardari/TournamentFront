@@ -1,0 +1,22 @@
+<div class="tournament-container">
+  <h2>Mes Tournois</h2>
+  <div class="tournament-container">
+    <div class="tournament-cards">
+        <div *ngFor="let tournament of allTournamentRegisterByIdDTO" class="card">
+          <h3>Nom : {{ tournament.name }}</h3>
+          <p>📍 Localisation : {{ tournament.localisation }}</p>
+          <p>👥 Nombre de places : {{ tournament.nbPlace }}</p>
+          <button class="view-button">
+            Voir les joueurs
+          </button>
+        </div>
+    </div>
+  </div>
+
+  <div *ngIf="allTournamentRegisterByIdDTO.length === 0">
+    Aucun tournoi trouvé.
+  </div>
+
+  <h2>Tournois en cours</h2>
+</div>
+

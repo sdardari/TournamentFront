@@ -7,13 +7,13 @@ import {InscriptionSoloModels} from '../models/inscriptionSolo.models';
   providedIn: 'root'
 })
 export class MatchMakingService {
-  private apiUrl = 'http://localhost:8080/matchMaking/solo';
+  private apiUrl = 'http://localhost:5050/tournament/matchMaking/solo';
 
   constructor(private http: HttpClient) { }
 
   registerSolo(userId: number, typeTournament: string): Observable<InscriptionSoloModels> {
     const params = new HttpParams()
-      .set('userId', userId.toString())
+      .set('userId', userId)
       .set('typeTournament', typeTournament);
 
     return this.http.post<InscriptionSoloModels>(this.apiUrl, {}, { params });

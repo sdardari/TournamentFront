@@ -1,1 +1,24 @@
-<p>ranked-options works!</p>
+<h3>Sélectionner une Région</h3>
+<form (ngSubmit)="onSubmit()">
+  <select [(ngModel)]="selectedRegionList" name="region">
+    <option *ngFor="let region of cityList" [value]="region">
+      {{ region }}
+    </option>
+  </select>
+
+  <div *ngIf="selectedRegionList">
+    <h4>Région sélectionnée : {{ selectedRegionList }}</h4>
+  </div>
+
+  <h3>Sélectionnez la taille du tournoi</h3>
+  <div class="options-container">
+    <div
+      *ngFor="let size of tournamentSizes"
+      class="option-box"
+      [class.selected]="size === selectedSize"
+      (click)="selectSize(size)">
+      {{ size }}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Valider</button>
+</form>
